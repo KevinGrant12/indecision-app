@@ -19,6 +19,11 @@ module.exports = {
       // avoid running node modules through babel
       exclude: /node_modules/
     }]
+  },
+  // source mapping that points original location of errors and actions
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
   }
 }
 
