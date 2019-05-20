@@ -1,7 +1,7 @@
 // entry -> output
 // output requires absolute path
 // node path to concat
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   entry: './src/app.js',
@@ -18,6 +18,14 @@ module.exports = {
       test: /\.js$/,
       // avoid running node modules through babel
       exclude: /node_modules/
+    }, {
+      test: /\.s?css$/,
+      // "use" allows array of loaders
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
     }]
   },
   // source mapping that points original location of errors and actions
@@ -25,5 +33,5 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public')
   }
-}
+};
 
